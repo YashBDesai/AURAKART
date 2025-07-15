@@ -9,7 +9,8 @@ export const useProductStore = create((set) => ({
 
   fetchProducts: async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/products");
+      const response = await fetch("https://mern-crash-course-t7kg.onrender.com/api/products")
+
       const data = await response.json();
       set({ products: data.data || data }); // Handle different response structures
     } catch (error) {
@@ -24,13 +25,16 @@ export const useProductStore = create((set) => ({
     }
 
     try {
-      const res = await fetch("http://localhost:3000/api/products", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newProduct),
-      });
+      const res = await fetch(
+        "https://mern-crash-course-t7kg.onrender.com/api/products",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newProduct),
+        }
+      );
 
       const data = await res.json();
 
@@ -51,9 +55,12 @@ export const useProductStore = create((set) => ({
 
   deleteProduct: async (pid) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/products/${pid}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `https://mern-crash-course-t7kg.onrender.com/api/products/${pid}`,
+        {
+          method: "DELETE",
+        }
+      );
 
       const data = await res.json();
 
@@ -75,13 +82,16 @@ export const useProductStore = create((set) => ({
 
   updateProduct: async (pid, updatedProduct) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/products/${pid}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(updatedProduct),
-      });
+      const res = await fetch(
+        `https://mern-crash-course-t7kg.onrender.com/api/products/${pid}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedProduct),
+        }
+      );
 
       const data = await res.json();
 
