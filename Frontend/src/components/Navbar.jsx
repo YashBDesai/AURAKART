@@ -49,7 +49,8 @@ const Navbar = () => {
         <Image
           src="/Website_Logo-removebg-preview.png"
           alt="Aurakart Logo"
-          height="170px"
+          height="200px"
+          width = "200px"
           objectFit="contain"
           dropShadow={"0 0 8px rgba(157, 0, 255, 0.5)"}
         />
