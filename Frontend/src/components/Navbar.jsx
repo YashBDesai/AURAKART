@@ -1,12 +1,13 @@
 import React from "react";
 import {
   Flex,
-  Text,
   Spacer,
   IconButton,
   useColorMode,
   useColorModeValue,
-  Box,
+  Image,
+  Text,
+  HStack,
 } from "@chakra-ui/react";
 import { AddIcon } from "@chakra-ui/icons";
 import { FaSun, FaMoon } from "react-icons/fa";
@@ -21,8 +22,8 @@ const Navbar = () => {
       as="nav"
       align="center"
       justify="space-between"
-      p={5}
-      px={10}
+      p={4}
+      px={{ base: 4, md: 16 }}
       borderRadius="lg"
       boxShadow="lg"
       bg={useColorModeValue("whiteAlpha.900", "gray.800")}
@@ -31,20 +32,32 @@ const Navbar = () => {
       top={0}
       zIndex={999}
     >
-      <Text
-        fontSize={{ base: "xl", md: "2xl" }}
-        fontWeight="extrabold"
-        bgGradient="linear(to-r, teal.400, blue.500)"
-        bgClip="text"
+      {/* Logo + Text with hover scale animation */}
+      <HStack
+        spacing={3}
         cursor="pointer"
+        onClick={() => navigate("/")}
+        align="center"
+        height="60px"
+        overflow="hidden"
+        transition="all 0.4s ease-in-out"
         _hover={{
-          bgGradient: "linear(to-r, pink.500, purple.500)",
+          transform: "translateY(-4px) scale(1.10)",
+          filter: "drop-shadow(0 0 8px rgba(157, 0, 255, 0.5))",
         }}
       >
-        PRODUCT STORE 🛒
-      </Text>
+        <Image
+          src="/Website_Logo-removebg-preview.png"
+          alt="Aurakart Logo"
+          height="170px"
+          objectFit="contain"
+          dropShadow={"0 0 8px rgba(157, 0, 255, 0.5)"}
+        />
+      </HStack>
 
       <Spacer />
+
+      {/* Action buttons */}
       <Flex gap={3}>
         <IconButton
           icon={<AddIcon />}
