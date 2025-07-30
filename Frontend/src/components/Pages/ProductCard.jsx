@@ -23,7 +23,7 @@ import {
 import { EditIcon, DeleteIcon, ViewIcon } from "@chakra-ui/icons";
 import { Link as RouterLink } from "react-router-dom";
 import axios from "axios";
-import { useNavigate } from "react-router-dom"; // ✅ Already present? Good.
+import { useNavigate } from "react-router-dom"; 
 const ProductCard = ({ product, onEdit, onDelete }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
@@ -82,7 +82,7 @@ const ProductCard = ({ product, onEdit, onDelete }) => {
       const response = await axios.delete(
         `http://localhost:3000/api/products/${productId}`
       );
-       console.log("✅ Deleted:", response.data);
+      console.log("✅ Deleted:", response.data);
 
       toast({
         title: "Success",
@@ -148,11 +148,11 @@ const ProductCard = ({ product, onEdit, onDelete }) => {
       navigator.vibrate(50);
     }
   };
-
+  const navigate = useNavigate();
   const handleBuyNow = () => {
     navigate(`/buy/${productId}`);
   };
-
+  
 
   return (
     <>
