@@ -29,12 +29,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { Box } from "@chakra-ui/react";
-
 import Navbar from "./components/Navbar";
 import HomePage from "./components/Pages/Homepage";
 import CreatePage from "./components/Pages/Createpage";
 import ProductDetailsModal from "./components/Pages/ProductDetailsModal";
 import PageWrapper from "./store/pagewrapper";
+import EditProductModal from "./components/Pages/EditProductModal";
 
 function App() {
   return (
@@ -66,6 +66,14 @@ function App() {
           element={
             <PageWrapper>
               <ProductDetailsModal />
+            </PageWrapper>
+          }
+        />
+        <Route
+          path="/product/edit/:id"
+          element={
+            <PageWrapper>
+              <EditProductModal />
             </PageWrapper>
           }
         />
