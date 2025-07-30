@@ -35,7 +35,7 @@ import CreatePage from "./components/Pages/Createpage";
 import ProductDetailsModal from "./components/Pages/ProductDetailsModal";
 import PageWrapper from "./store/pagewrapper";
 import EditProductModal from "./components/Pages/EditProductModal";
-
+import BuyNow from "./components/Pages/BuyNow";
 function App() {
   return (
     <Box
@@ -77,8 +77,14 @@ function App() {
             </PageWrapper>
           }
         />
-   
-       
+        <Route
+          path="/buy/:id"
+          element={
+            <PageWrapper>
+              <BuyNow />
+            </PageWrapper>
+          }
+        />
       </Routes>
     </Box>
   );
